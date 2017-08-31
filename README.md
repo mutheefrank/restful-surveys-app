@@ -58,11 +58,11 @@ curl -H "Content-Type: application/json" -H "Authorization: Token YOUR_AUTH_TOKE
 ```
 
 [ DELETE ]
-
+```
 curl -H "Content-Type: application/json" -H "Authorization: Token YOUR_AUTH_TOKEN" -X DELETE  http://107.170.39.149/api/drinks/4/
 curl -H "Content-Type: application/json" -H "Authorization: Token YOUR_AUTH_TOKEN" -X DELETE  http://107.170.39.149/api/locations/4/
 curl -H "Content-Type: application/json" -H "Authorization: Token YOUR_AUTH_TOKEN" -X DELETE  http://107.170.39.149/api/surveys/4/
-
+```
 ## Powered by
 
 * [Django](https://www.djangoproject.com/) - Web framework
