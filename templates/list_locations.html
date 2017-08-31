@@ -1,0 +1,31 @@
+{% extends "crud.html" %}
+
+{% block crud_context %}
+<div class="text-center">
+    <a class="btn" href="{% url 'locations-add' %}">Add New</a>
+</div>
+<hr>
+
+{% if locations %}
+<div class="row">
+    {% for location in locations %}
+    <div class="col-md-3" style="margin-top: 5px; margin-bottom: 5px">
+        <button style="width: 100%; padding:10px" class="btn btn-outline-info btn-lg">
+            <i class="fa fa-map-marker" aria-hidden="true"></i> {{location.location}}
+        </button>
+        <br>
+
+        <div class="text-center">
+            <a class="" href="{% url 'locations-update' location.pk %}"> edit</a> <i class="fa fa-edit"></i> |
+            <a class="" href="{% url 'locations-delete' location.pk %}"> delete <i class="fa fa-times"></i></a>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+{% else %}
+<div class="text-center"><p>No locations for research available</p></div>
+{% endif %}
+
+{% endblock %}

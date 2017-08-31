@@ -1,0 +1,15 @@
+{% extends "crud.html" %}
+{% block crud_context %}
+
+<div class="col-lg-4 mx-auto">
+    <form method="POST" action="."> {% csrf_token %}
+
+        {{form.as_p}}
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg" > Add Survey </button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content  %}
+
+<section class="danger" style="margin-top: 10px">
+    <div class="container">
+        <h3 class="text-center">Crud Actions</h3>
+        <hr>
+        <div class="text-center">
+        <a href="{% url 'locations-list' %}"  style="width: 150px" href="" type="submit" class="  btn btn-success btn-lg" > Locations </a>
+        <a href="{% url 'drinks-list' %}" style="width: 150px" href="" type="submit" class=" btn btn-success btn-lg" > Drinks </a>
+        <a href="{% url 'surveys-list' %}" style="width: 150px" href="" type="submit" class=" btn btn-success btn-lg" > Surveys </a>
+        </div>
+        <hr>
+
+        {% block crud_context %}
+
+        {% endblock %}
+    </div>
+
+</section>
+
+
+{% endblock %}

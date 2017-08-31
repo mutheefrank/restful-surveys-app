@@ -1,0 +1,29 @@
+{% extends "crud.html" %}
+{% block crud_context %}
+
+<div class="text-center">
+    <a class="btn" href="{% url 'survey-add' %}">Add New</a>
+</div>
+<hr>
+
+{% if surveys %}
+<div class="row">
+    {% for survey in surveys %}
+    <div class=" col-md-4" style="margin-top: 5px; margin-bottom: 5px">
+
+    <div class="">
+        <b>{{survey.research_person }}</b> from <b>{{survey.research_area}}</b> prefers <i><b>{{survey.drink}}</b></i>
+    <br>
+        <a href="{% url 'survey-update' survey.pk %}"> edit</a> <i class="fa fa-edit"></i> |
+        <a href="{% url 'survey-delete' survey.pk %}"> delete <i class="fa fa-times"></i></a>
+    </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+{% else %}
+<div class="text-center"><p> No surveys available </p></div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+{% block content %}
+    <section id="contact" style="margin-top: 12px">
+      <div class="container">
+        <h2 class="text-center"> Login </h2>
+        <hr class="star-primary">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+
+            <form method="post" action="{% url 'login' %}" > {% csrf_token %}
+                {% for error in form.non_field_errors %}
+                  <p style="color: red" class="help-block text-danger">{{ error }}</p>
+                {% endfor %}
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label>Username</label>
+                    <input class="form-control" name="username" type="text" placeholder="Username" required data-validation-required-message="Please enter your name.">
+                  <p style="color: red" class="help-block text-danger">{{form.username.errors}}</p>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label>Password</label>
+                    <input class="form-control" name="password" type="password" placeholder="Password" required data-validation-required-message="please enter your paassword">
+                  <p style="color: red"  class="help-block text-danger">{{form.password.errors}}</p>
+                </div>
+              </div>
+              <br>
+              <div id="success"></div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg" id=""> Login </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

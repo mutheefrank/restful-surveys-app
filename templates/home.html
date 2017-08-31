@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- About Section -->
+    <section class="success" id="about" style="margin-top: 15px">
+      <div class="container">
+        <h5 class="text-center"> Data Summary </h5>
+        <hr class="star-primary">
+
+        <div class="row" style="margin-top: 30px; margin-bottom: 10px">
+          <div class="col-md-12">
+            <div class="text-center"><a target="_blank" href="{{ f }}" class="btn btn-primary btn-lg"><i class="fa fa-download"></i> Download Data </a></div>
+          </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 20px">
+          <div class="col-lg-6 ml-auto" style="height: 170px; width: 100%;">
+            <p><b>Drink Used For Surveys :</b> </p>
+            <p> {% for drink in survey_drinks  %} {{drink}} <i class="fa fa-beer"></i> | {% endfor %}  </p>
+          </div>
+
+          <div class="col-lg-6 mr-auto" style="height: 170px; width: 100%;">
+            <p><b>Locations Used For Surveys : </b></p>
+            <p>{% for location in survey_locations %}  {{location}} <i class="fa fa-location-arrow"></i> | {% endfor %}</p>
+          </div>
+
+          <div class="col-lg-6 ml-auto" style="height: 170px; width: 100%;">
+            <p><b>Persons Who Conducted Surveys :</b></p>
+            <p>{% for surveyor in surveyors  %} {{surveyor.username}} <i class="fa fa-user"></i> | {% endfor %}</p>
+          </div>
+
+          <div class="col-lg-6 mr-auto" style="height: 170px; width: 100%;">
+            <p><b>People That Participated In Surveys :</b> </p>
+            <p>{%for respondent in survey_respondents %}{{respondent.research_person }} <i class="fa fa-user-circle"></i> | {% endfor %} </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 mr-auto" style="height: 170px; width: 100%;">
+          <p><b>Summary Of Popular Drinks :</b> </p>
+          {% for item in popular_drinks %}
+            <button style="width: 150px"  class="btn btn-sm"><b>Drink:</b> {{ item.drink }} </button>  <button style="width: 150px" class="btn btn-sm"> {{item.drink_count}} <i class="fa fa-users"> </i></button>  <hr>
+          {% endfor %}
+          </div>
+
+          <div class="col-lg-6 mr-auto" style="height: 170px; width: 100%;">
+          <p><b>Summary Of Popular Locations :</b> </p>
+          {% for item in popular_locations %}
+            <button style="width: 150px"  class="btn btn-sm"><b>Location:</b> {{ item.location }} </button>  <button style="width: 150px" class="btn btn-sm"> {{item.drink_count}} <i class="fa fa-users"> </i></button>  <hr>
+          {% endfor %}
+          </div>
+
+        </div>
+
+        <div class="row" style="margin-top:30px">
+
+        </div>
+
+
+
+      </div>
+    </section>
+
+{% endblock %}
